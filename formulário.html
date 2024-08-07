@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cálculo de IMC</title>
+</head>
+<body>
+  <form id="bmiForm">
+    <label for="weight">Peso (kg):</label>
+    <input type="text" id="weight" name="weight"><br><br>
+    <label for="height">Altura (m):</label>
+    <input type="text" id="height" name="height"><br><br>
+    <input type="button" value="Calcular IMC" onclick="calculateBMI()">
+  </form>
+
+  <p id="output"></p>
+
+  <script>
+    function calculateBMI() {
+      let weight = parseFloat(document.getElementById('weight').value);
+      let height = parseFloat(document.getElementById('height').value);
+
+      if (isNaN(weight) || isNaN(height) || height === 0) {
+        document.getElementById('output').innerText = "Por favor, insira valores válidos.";
+      } else {
+        let bmi = weight / (height * height);
+        document.getElementById('output').innerText = "Seu IMC é: " + bmi.toFixed(2);
+      }
+    }
+  </script>
+</body>
+</html>
